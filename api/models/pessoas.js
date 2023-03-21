@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, ValidationError
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Pessoas extends Model {
@@ -16,14 +16,41 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pessoas.init({
-    nome: DataTypes.STRING,
+
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        funcaoValidadora: function(dado){
+          if(dado.length < 3) throw new Error('O campo nome deve ter mais de 3 caracteres.')
+        }
+      }
+    },
+
     ativo: DataTypes.BOOLEAN,
-    email: DataTypes.STRING,
+
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: {
+          arg: true,
+          msg: 'Campo e-mail deve ser preenchido com um dado do tipo e-mail.'},
+      }
+    },
+
     role: DataTypes.STRING
-  }, {
+  },
+    {
     sequelize,
     modelName: 'Pessoas',
     paranoid: true,
+    defaultScope: {
+      where: {ativo: true}
+    },
+    scopes: {
+      todos: { where: {}}
+    },
   },);
   return Pessoas;
 };
