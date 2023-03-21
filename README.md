@@ -8,7 +8,10 @@
 > Criado com referência ao material didático do Alura Cursos, curso de ORM com Sequelize.
 
 # Instruções:
-Para utilizar o projeto, é necessário verificar sua autenticação com mysql no arquivo "config.json" localizado no diretório:
+
+>Necessário a instalação das dependências do Sequelize/Sequelize-cli e mysql2 para funcionamento.
+
+>Para utilizar o projeto, é necessário verificar sua autenticação com mysql no arquivo "config.json" localizado no diretório:
 
 ``` 📁ORM-Sequelize/api/config/ ```
 
