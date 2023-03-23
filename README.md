@@ -1,6 +1,6 @@
 # ORM-Sequelize
 
-![Badge Conclúido](https://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=green&style=flat-square)
+*Em andamento*
 
 # Sobre o Projeto:
 
