@@ -1,6 +1,6 @@
 # ORM-Sequelize
 
-![Badge Conclúido](https://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=green&style=flat-square)
+*Em andamento*
 
 # Sobre o Projeto:
 
@@ -9,7 +9,7 @@
 
 # Instruções:
 
->Necessário a instalação das dependências do Sequelize/Sequelize-cli e mysql2 para funcionamento.
+>Necessário a instalação das dependências do Sequelize/Sequelize-cli e mysql2 para funcionamento. A database criada para o exemplo se chama "escola_ingles".
 
 >Para utilizar o projeto, é necessário verificar sua autenticação com mysql no arquivo "config.json" localizado no diretório:
 
