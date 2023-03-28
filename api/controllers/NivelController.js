@@ -22,7 +22,7 @@ class NivelController {
 
       try{
 
-          const umNivel = await database.Niveis.findOne({where: {id: Number(id)}});
+          const umNivel = await niveisServices.pegaUmRegistro(id);
           return res.status(200).json(umNivel);
       }catch (error){
           
@@ -36,7 +36,7 @@ class NivelController {
 
       try{
 
-          const novoNivelCriado = await database.Niveis.create(novoNivel);
+          const novoNivelCriado = await niveisServices.criaRegistro(novoNivel);
           res.status(200).json(novoNivelCriado);
       }catch(error){
 
@@ -51,8 +51,8 @@ class NivelController {
 
       try{
           
-          await database.Niveis.update(novasInfos, {where: {id: Number(id)}});
-          const nivelAtualizado = await database.Niveis.findOne({where: {id: Number(id)}});
+          await niveisServices.atualizaRegistro(novasInfos, id);
+          const nivelAtualizado = await niveisServices.pegaUmRegistro(id);
           return res.status(200).json(nivelAtualizado);
       }catch(error){
 
@@ -65,8 +65,8 @@ class NivelController {
       
       try{
 
-          await database.Niveis.destroy({where: {id: Number(id)}});
-          return res.status(200).json({mensagem: `id ${id} deletado`})
+          await niveisServices.apagaRegistro(id);
+          return res.status(200).json({mensagem: `id ${id} deletado`});
       }catch(error){
 
           return res.status(500).json(error.message);
@@ -79,8 +79,8 @@ class NivelController {
 
     try{
 
-        await database.Niveis.restore({where: {id: Number(id)}})
-        return res.status(200).json({mensagem: `id ${id} restaurado!`})
+        await niveisServices.restauraRegistro(id);
+        return res.status(200).json({mensagem: `id ${id} restaurado!`});
     } catch (error){
 
        return res.status(500).json(error.message);
